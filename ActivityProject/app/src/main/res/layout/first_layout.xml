@@ -15,4 +15,10 @@
         android:layout_height="wrap_content"
         android:text="逛知乎"/>
 
+    <Button
+        android:id="@+id/call_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="给不妞打电话"/>
+
 </LinearLayout>

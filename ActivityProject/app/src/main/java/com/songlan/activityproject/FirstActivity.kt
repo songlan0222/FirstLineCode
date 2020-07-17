@@ -1,9 +1,11 @@
 package com.songlan.activityproject
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -22,6 +24,11 @@ class FirstActivity : AppCompatActivity() {
         web_zhihu_button.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("https://www.zhihu.com/hot")
+            startActivity(intent)
+        }
+        call_button.setOnClickListener {
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:15108433172")
             startActivity(intent)
         }
     }
@@ -48,6 +55,19 @@ class FirstActivity : AppCompatActivity() {
         val intent = Intent("com.songlan.activityproject.START_ACTION")
         // 额外添加category
         // intent.addCategory("sssss")
-        startActivity(intent)
+        // 添加额外数据
+        intent.putExtra("first2Second", "Hello second")
+        //
+        startActivityForResult(intent, 1)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when(requestCode){
+            1 -> if(resultCode == Activity.RESULT_OK){
+                val returnedData = data?.getStringExtra("data_return")
+                Log.d("FirstAcitivity", "return data is [ ${returnedData} ]")
+            }
+        }
     }
 }
