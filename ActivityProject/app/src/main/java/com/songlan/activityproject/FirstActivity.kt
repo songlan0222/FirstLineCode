@@ -1,5 +1,7 @@
 package com.songlan.activityproject
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -14,7 +16,13 @@ class FirstActivity : AppCompatActivity() {
         setContentView(R.layout.first_layout)
         //val button1 = findViewById<Button>(R.id.button1)
         button1.setOnClickListener{
-            Toast.makeText(this, "你再点！", Toast.LENGTH_SHORT).show()
+            // Toast.makeText(this, "你再点！", Toast.LENGTH_SHORT).show()
+            startSecondActivity()
+        }
+        web_zhihu_button.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://www.zhihu.com/hot")
+            startActivity(intent)
         }
     }
 
@@ -30,5 +38,16 @@ class FirstActivity : AppCompatActivity() {
             R.id.remove_item -> Toast.makeText(this, "拿去爬", Toast.LENGTH_SHORT).show()
         }
         return true
+    }
+
+    // 启动第二个Activity
+    private fun startSecondActivity(){
+        // 显示intent
+        // val intent = Intent(this, SecondActivity::class.java)
+        // 隐式intent,默认传递的categary为DEFAULT
+        val intent = Intent("com.songlan.activityproject.START_ACTION")
+        // 额外添加category
+        // intent.addCategory("sssss")
+        startActivity(intent)
     }
 }
