@@ -12,14 +12,19 @@ import android.widget.Button
 import android.widget.Toast
 import kotlinx.android.synthetic.main.first_layout.*
 
-class FirstActivity : AppCompatActivity() {
+class FirstActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.first_layout)
-        //val button1 = findViewById<Button>(R.id.button1)
+        // val button1 = findViewById<Button>(R.id.button1)
+        // Log.d("First Activity", this.toString())
         button1.setOnClickListener{
             // Toast.makeText(this, "你再点！", Toast.LENGTH_SHORT).show()
-            startSecondActivity()
+            // val intent = Intent(this, ThirdActivity::class.java)
+            // startActivity(intent)
+
+            //startSecondActivity()
+            SecondActivity.actionStart(this, "data1", "data2")
         }
         web_zhihu_button.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW)
