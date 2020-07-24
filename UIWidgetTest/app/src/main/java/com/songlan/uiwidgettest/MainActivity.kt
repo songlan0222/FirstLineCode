@@ -10,14 +10,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        button.setOnClickListener(this)
     }
 
-    override fun onClick(view: View?) {
-        when (view?.id) {
+    override fun onClick(v: View?) {
+        when (v?.id) {
             R.id.button -> {
-                //val inputText = editText.text.toString()
-                //val msg = if(inputText.isEmpty())"点锤子你点" else inputText
-                Toast.makeText(this, "点锤子你点", Toast.LENGTH_SHORT).show()
+                val inputText = editText.text.toString()
+                val msg = if(inputText.isEmpty())"点锤子你点" else inputText
+                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
             }
         }
     }
