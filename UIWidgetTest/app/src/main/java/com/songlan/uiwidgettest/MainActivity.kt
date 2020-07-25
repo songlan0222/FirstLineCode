@@ -15,6 +15,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button.setOnClickListener(this)
         changeImgBtn.setOnClickListener (this)
         progressBtn.setOnClickListener(this)
+
+        // 隐藏系统标题栏
+        supportActionBar?.hide()
     }
 
     override fun onClick(v: View?) {
