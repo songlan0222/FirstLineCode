@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.songlan.Model.Fruit
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         // 隐藏系统标题栏
         supportActionBar?.hide()
+
     }
 
     override fun onClick(v: View?) {
@@ -41,14 +44,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         setMessage("进度条已满，继续点击JJ将会缩短")
                         setCancelable(false)
                         setPositiveButton("确认继续点击"){dialog, which->
-                            {
-                                Toast.makeText(this@MainActivity, "jj真的短了10cm吧？", Toast.LENGTH_SHORT).show()
-                            }
+                            Toast.makeText(this@MainActivity, "jj真的短了10cm吧？", Toast.LENGTH_SHORT).show()
                         }
                         setNegativeButton("算了算了"){dialog, which->
-                            {
-                                Toast.makeText(this@MainActivity, "幸好怂了，不然真的会短！", Toast.LENGTH_SHORT).show()
-                            }
+                            Toast.makeText(this@MainActivity, "幸好怂了，不然真的会短！", Toast.LENGTH_SHORT).show()
 
                         }
                         show()
