@@ -5,20 +5,79 @@
     android:layout_width="match_parent">
 
     <EditText
-        android:id="@+id/textView"
+        android:id="@+id/editTextContent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Type something here"/>
-    <Button
-        android:id="@+id/saveBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SaveData"/>
+        android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/loadBtn"
+        android:id="@+id/saveXMLBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LoadXMLData"/>
+        android:textAllCaps="false"
+        android:text="saveXML"/>
+
+    <Button
+        android:id="@+id/loadXMLBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="loadXML"/>
+
+    <Button
+        android:id="@+id/createBookBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="createT_Book"/>
+
+    <Button
+        android:id="@+id/createCategoryBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="createT_Category"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/addBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="addBook"/>
+
+        <Button
+            android:id="@+id/deleteBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="deleteBook"/>
+
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="updateBook"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/queryBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="queryBook"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/booksRV"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
 </LinearLayout>
