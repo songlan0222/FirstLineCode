@@ -1,4 +1,4 @@
-package com.songlan.contactstest
+package com.songlan.runtimepermissiontest
 
 import android.Manifest
 import android.content.Intent
@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        callBtn.setOnClickListener {
-            if(ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+        callBtn.setOnClickListener{
+            if(ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
                 ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CALL_PHONE), 1)
             } else{
                 call()
@@ -24,25 +24,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when(requestCode){
             1 -> {
                 if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                     call()
                 } else{
-                    Toast.makeText(this, "用户已拒绝给予拨号权限", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "sorry, you denied the call action", Toast.LENGTH_SHORT).show()
                 }
             }
         }
     }
 
     private fun call(){
-        try {
+        try{
             val intent = Intent(Intent.ACTION_CALL)
             intent.data = Uri.parse("tel:10086")
             startActivity(intent)
