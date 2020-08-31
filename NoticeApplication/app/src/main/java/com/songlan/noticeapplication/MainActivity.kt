@@ -28,35 +28,30 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun createNoticeChannel(){
-        if(!::manager.isInitialized){
-            manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        }
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+        manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
             val normalChannel = NotificationChannel("normal", "普通通知", NotificationManager.IMPORTANCE_DEFAULT)
             val importantChannel = NotificationChannel("important", "重要通知", NotificationManager.IMPORTANCE_HIGH)
-            manager.apply {
-                createNotificationChannel(normalChannel)
-                createNotificationChannel(importantChannel)
-            }
+            manager.createNotificationChannel(normalChannel)
+            manager.createNotificationChannel(importantChannel)
         }
     }
 
-    override fun onClick(view: View) {
-        when(view.id){
+    override fun onClick(view: View?) {
+        when(view?.id){
             R.id.noticeBtn -> {
                 val intent = Intent(this, NotificationActivity::class.java)
-                intent.putExtra("text", "阿巴阿巴阿巴阿巴阿巴把阿巴阿巴把阿坝的金发射流风机埃里克森的房间埃里克森的解放路卡机的理发卡建设路口的房间爱斯达克了房间埃里克森的聚隆科技SDK了几分")
+                intent.putExtra("text", "随便发送点内容，象征性的展示一下")
                 val pi = PendingIntent.getActivity(this, 0, intent, 0)
-                val notification = NotificationCompat.Builder(this, "important").apply {
-                    setContentTitle("消息通知")
-                    setContentText("消息主体，随便写点什么")
+                val notification = NotificationCompat.Builder(this, "normal").apply {
+                    setContentTitle("标准通知")
+                    setStyle(NotificationCompat.BigPictureStyle().bigPicture(BitmapFactory.decodeResource(resources, R.drawable.big_image)))
+                    setAutoCancel(true)
+                    setContentIntent(pi)
                     setSmallIcon(R.drawable.small_icon)
                     setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.large_icon))
-                    setContentIntent(pi)
-                    setAutoCancel(true)
                 }.build()
                 manager.notify(1, notification)
-
             }
         }
     }
