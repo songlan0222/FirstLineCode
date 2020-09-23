@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/friends"
+            android:icon="@drawable/nav_friends"
+            android:title="friends"/>
+        <item
+            android:id="@+id/location"
+            android:icon="@drawable/nav_location"
+            android:title="location"/>
+        <item
+            android:id="@+id/call"
+            android:icon="@drawable/nav_call"
+            android:title="call"/>
+        <item
+            android:id="@+id/mail"
+            android:icon="@drawable/nav_mail"
+            android:title="mail"/>
+        <item
+            android:id="@+id/task"
+            android:icon="@drawable/nav_task"
+            android:title="task"/>
+
+    </group>
+</menu>
