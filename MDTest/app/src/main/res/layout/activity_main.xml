@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -20,32 +19,33 @@
                 android:layout_height="?attr/actionBarSize"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:titleTextColor="#FFF" />
+                app:layout_scrollFlags="scroll|snap|enterAlwaysCollapsed"
+                />
+
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/refreshLayout"
+            android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            >
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+                android:id="@+id/mainRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+                android:layout_height="match_parent"/>
+
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/mainFloatActionBtn"
+            android:id="@+id/mainFloatingActionBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/ic_done"
             android:layout_margin="10dp"
-            android:elevation="8dp"
-            android:src="@drawable/ic_done" />
+            android:elevation="8dp" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -56,6 +56,5 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header_layout"
         app:menu="@menu/nav_menu" />
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

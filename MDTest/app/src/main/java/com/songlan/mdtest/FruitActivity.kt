@@ -22,9 +22,10 @@ class FruitActivity : AppCompatActivity() {
 
         val fruitName = intent.getStringExtra(FRUIT_NAME)?:""
         val fruitImageId = intent.getIntExtra(FRUIT_IMAGE_ID, 0)
-        collapsingToolbarLayout.title = fruitName
         fruitContentText.text = fruitName.repeat(500)
+        collapsingToolbar.title = fruitName
         Glide.with(this).load(fruitImageId).into(fruitImageView)
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -34,7 +35,6 @@ class FruitActivity : AppCompatActivity() {
                 return true
             }
         }
-
         return super.onOptionsItemSelected(item)
     }
 }

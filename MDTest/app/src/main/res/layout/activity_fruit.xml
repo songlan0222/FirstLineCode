@@ -9,10 +9,11 @@
         android:id="@+id/fruitAppBar"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        >
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collapsingToolbarLayout"
+            android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
@@ -41,6 +42,10 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -50,11 +55,7 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="15dp"
+                android:layout_height="match_parent"
                 app:cardCornerRadius="8dp">
 
                 <TextView
@@ -64,21 +65,17 @@
                     android:textSize="16sp" />
 
             </com.google.android.material.card.MaterialCardView>
-
-
         </LinearLayout>
-
 
     </androidx.core.widget.NestedScrollView>
 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fruitFloatingActionBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="8dp"
+        android:layout_margin="10dp"
         android:src="@drawable/ic_comment"
         app:layout_anchor="@id/fruitAppBar"
         app:layout_anchorGravity="bottom|end" />
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
