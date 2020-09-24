@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         plusOneBtn.setOnClickListener(this)
         clearBtn.setOnClickListener(this)
+        getUserBtn.setOnClickListener(this)
 
         sp = getPreferences(Context.MODE_PRIVATE)
         val counterReserved = sp.getInt(MainViewModel.COUNTER_RESERVED, 0)
@@ -30,6 +31,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         viewModel.counter.observe(this, Observer {
             counterTextView.text = viewModel.counter.value.toString()
+        })
+
+        viewModel.user.observe(this, Observer {
+            counterTextView.text = "用户编号:" + viewModel.user.value?.firstName.toString()
         })
 
     }
@@ -41,6 +46,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.clearBtn -> {
                 viewModel.clear()
+            }
+            R.id.getUserBtn -> {
+                val userId = (0..10000).random().toString()
+                viewModel.getUser(userId)
             }
         }
     }
