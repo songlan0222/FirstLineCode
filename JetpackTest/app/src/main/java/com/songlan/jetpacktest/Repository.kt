@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData
 
 object Repository {
 
-    fun getUser(userId: String): LiveData<User>{
-        val liveData = MutableLiveData<User>()
-        liveData.value = User(userId, userId, 16)
-        return liveData
+    fun getUser(id: String): LiveData<User>{
+        val user = MutableLiveData<User>()
+        user.value = User(id, id, 10)
+        return user
     }
 }

@@ -32,4 +32,36 @@
         android:layout_gravity="center_horizontal"
         android:text="Get User"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/insertUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="insertUser"/>
+    <Button
+        android:id="@+id/deleteUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="deleteUser"/>
+    <Button
+        android:id="@+id/updateUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="updateUser"/>
+    <Button
+        android:id="@+id/queryAllUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="queryAllUser"/>
+    <Button
+        android:id="@+id/deleteAllUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="deleteAllUser"/>
+
 </LinearLayout>

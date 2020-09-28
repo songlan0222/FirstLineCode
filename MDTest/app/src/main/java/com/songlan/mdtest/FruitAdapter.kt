@@ -13,12 +13,11 @@ import com.bumptech.glide.Glide
 class FruitAdapter(val context: Context, val data: List<Fruit>) :
     RecyclerView.Adapter<FruitAdapter.ViewHolder>() {
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val fruitImage: ImageView = view.findViewById(R.id.mainRecyclerFruitImage)
-        val fruitName: TextView = view.findViewById(R.id.mainRecyclerFruitName)
+        val fruitName: TextView = view.findViewById(R.id.fruitName)
+        val fruitImage: ImageView = view.findViewById(R.id.fruitImage)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-
         val view = LayoutInflater.from(parent.context).inflate(R.layout.fruit_item, parent, false)
         val viewHolder = ViewHolder(view)
 
@@ -28,7 +27,6 @@ class FruitAdapter(val context: Context, val data: List<Fruit>) :
             val intent = Intent(context, FruitActivity::class.java)
             intent.putExtra(FruitActivity.FRUIT_NAME, fruit.name)
             intent.putExtra(FruitActivity.FRUIT_IMAGE_ID, fruit.imageId)
-
             context.startActivity(intent)
         }
 

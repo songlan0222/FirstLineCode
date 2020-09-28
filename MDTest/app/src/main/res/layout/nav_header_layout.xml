@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
-    android:padding="10dp"
-    android:background="@color/colorPrimary">
+    android:background="?android:attr/colorBackground"
+    android:layout_height="250dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_centerInParent="true"
-        android:src="@drawable/nav_icon" />
+        android:src="@drawable/nav_icon"/>
 
     <TextView
-        android:id="@+id/bottomMail"
+        android:id="@+id/mail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:text="songlan@mail.com"
-        android:textColor="#fff"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="?android:attr/textColorPrimary"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/bottomMail"
         android:layout_centerHorizontal="true"
+        android:layout_above="@+id/mail"
         android:text="songlan"
-        android:textColor="#fff"
-        android:textSize="16sp" />
-
+        android:textSize="16sp"
+        android:textColor="?android:attr/textColorPrimary"/>
 
 </RelativeLayout>

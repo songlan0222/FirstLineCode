@@ -1,4 +1,8 @@
 package com.songlan.mdtest
 
-class Fruit(val name: String, val imageId: Int) {
+import android.app.Application
+import android.content.Context
+
+class Fruit(val name: String, val imageId: Int){
+
 }

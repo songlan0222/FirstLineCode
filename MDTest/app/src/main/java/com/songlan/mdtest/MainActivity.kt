@@ -14,7 +14,7 @@ import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
 
-    private val fruit = mutableListOf<Fruit>(
+    val fruit = mutableListOf<Fruit>(
         Fruit("apple", R.drawable.apple),
         Fruit("banana", R.drawable.banana),
         Fruit("orange", R.drawable.orange),
@@ -27,54 +27,65 @@ class MainActivity : AppCompatActivity() {
         Fruit("pear", R.drawable.pear),
     )
 
-    private val fruitList = ArrayList<Fruit>()
+    val fruitList = ArrayList<Fruit>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // 绑定toolbar作为工具栏
         setSupportActionBar(mainToolbar)
+
+        // toolbar的home按钮激活
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
 
+        // Snackbar的使用
+        mainFloatingActionBtn.setOnClickListener {
+            Snackbar.make(it, "Floating Bar", Snackbar.LENGTH_SHORT)
+                .setAction("Retry") {
+                    Toast.makeText(this, "you click [retry]", Toast.LENGTH_SHORT).show()
+                }
+                .show()
+        }
+
+        // navigation的弹出
         navigationView.setCheckedItem(R.id.navFriends)
         navigationView.setNavigationItemSelectedListener {
             drawerLayout.closeDrawers()
             true
         }
 
-        mainFloatingActionBtn.setOnClickListener {
-            Snackbar.make(it, "Oh my God!", Snackbar.LENGTH_SHORT)
-                .setAction("Ah?"){
-                    Toast.makeText(this, "A pig fly in sky!", Toast.LENGTH_SHORT).show()
-                }
-                .show()
-        }
-
-        initFruits()
-        val layoutManager = GridLayoutManager(this, 2)
+        // 数据展示
+        initFruit()
+        val manager = GridLayoutManager(this, 2)
         val adapter = FruitAdapter(this, fruitList)
         mainRecyclerView.let {
-            it.layoutManager = layoutManager
+            it.layoutManager = manager
             it.adapter = adapter
         }
 
-        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary)
-        swipeRefreshLayout.setOnRefreshListener {
-            thread {
-                Thread.sleep(2000)
-                runOnUiThread {
-                    initFruits()
-                    adapter.notifyDataSetChanged()
-                    swipeRefreshLayout.isRefreshing = false
-                }
+        // 下拉刷新
+        mainSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary)
+        mainSwipeRefreshLayout.setOnRefreshListener {
+            refreshFruit(adapter)
+        }
+    }
+
+    private fun refreshFruit(adapter: FruitAdapter) {
+        thread {
+            Thread.sleep(1000)
+            runOnUiThread {
+                initFruit()
+                adapter.notifyDataSetChanged()
+                mainSwipeRefreshLayout.isRefreshing = false
             }
         }
     }
 
-    private fun initFruits() {
+    private fun initFruit() {
         fruitList.clear()
-        repeat(50){
+        repeat(50) {
             val index = (0 until fruit.size).random()
             fruitList.add(fruit[index])
         }
@@ -91,10 +102,10 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "backup", Toast.LENGTH_SHORT).show()
             }
             R.id.delete -> {
-                Toast.makeText(this, "delete", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "backup", Toast.LENGTH_SHORT).show()
             }
             R.id.settings -> {
-                Toast.makeText(this, "settings", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "backup", Toast.LENGTH_SHORT).show()
             }
             android.R.id.home -> {
                 drawerLayout.openDrawer(GravityCompat.START)
