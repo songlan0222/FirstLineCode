@@ -1,0 +1,9 @@
+# Update > 2021.2.27 This rule is based on optimization by lhie1/Rules.
+DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao-b.com,REJECT
+DOMAIN,18comic.vip,REJECT
+DOMAIN,18comic.art,REJECT
+DOMAIN,18comic2.one,REJECT
+DOMAIN,18comic1.one,REJECT
+DOMAIN,566uu.com,REJECT
+DOMAIN,69apz.com,REJECT
+DOMAIN,micmicdoll.com,REJECT
