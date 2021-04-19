@@ -5,5 +5,5 @@ DOMAIN,18comic2.one,REJECT
 DOMAIN,18comic1.one,REJECT
 DOMAIN,566uu.com,REJECT
 DOMAIN,69apz.com,REJECT
-DOMAIN,maomiav.com
+DOMAIN,maomiav.com,REJECT
 DOMAIN,micmicdoll.com,REJECT
